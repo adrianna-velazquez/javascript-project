@@ -90,7 +90,7 @@ a {
   list-style: none;
 }
 
-.product {
+.product-card {
   margin-bottom: 50px;
   padding: 30px;
   background-color: white;
@@ -107,4 +107,5 @@ a {
   background-color: #fe5f55;
   font-family: "Raleway", sans-serif;
 }
-@media only screen(min-width:768px);
+@media only screen and (min-width: 768px) {
+}
