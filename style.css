@@ -1,1 +1,53 @@
-/* Mobile Viewport */
+@font-face {
+    font-family: lemonMilk;
+    src: url(lemon_milk/LEMONMILK-Regular.otf);
+  }
+
+body,
+h1,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+    background-color: #EEF5DB;
+}
+
+.main-content {
+    margin: 40px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.headline {
+    color: #FE5F55;
+    font-family: lemonMilk;
+
+}
+
+.nav-items {
+    list-style: none;
+}
+
+.product {
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 5px 5px 5px #B8D8D8;
+    border-radius: 20px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.add-cart {
+    background-color: #FE5F55;
+    font-family: 'Raleway', sans-serif; 
+}
