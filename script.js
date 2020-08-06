@@ -111,7 +111,7 @@ const createProductCard = () => {
     productDescription.innerText = product.description;
     let productPrice = document.createElement("p");
     productPrice.classList.add("product", "price", "info");
-    productPrice.innerText = product.price;
+    productPrice.innerText = `$${product.price}`;
     let productCategory = document.createElement("p");
     productCategory.classList.add("product", "category", "info");
     productCategory.innerText = product.category;

@@ -21,10 +21,14 @@ ul {
   padding: 0;
 }
 
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+  background-color: #eef5db;
+}
+
 .header {
   position: fixed;
-  margin: 0;
-  padding: 0;
   top: 0;
 }
 
@@ -60,31 +64,14 @@ ul {
 
 } */
 
-body {
-  font-family: "Raleway", sans-serif;
-  font-weight: bolder;
-  background-color: #eef5db;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 .main-content {
   margin: 40px;
   padding-top: 35vw;
 }
 
-/* .product-container {
-} */
-
 a {
   text-decoration: none;
 }
-
-/* .headline {
-  color: #fe5f55;
-  font-family: lemonMilk;
-} */
 
 .nav-items {
   list-style: none;
