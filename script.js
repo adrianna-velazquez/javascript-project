@@ -159,8 +159,10 @@ productContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-cart")) {
     let index = e.target.getAttribute("data-index");
     shoppingCartArray.push(products[index]);
+    let total = 0;
+    insideCart.innerHTML = "";
     shoppingCartArray.forEach((product) => {
-      // insideCart.innerHTML = "";
+      total += product.price;
       let card = document.createElement("div");
       card.classList.add("cart-product");
       let productImage = document.createElement("img");
@@ -175,47 +177,8 @@ productContainer.addEventListener("click", (e) => {
       card.append(productImage, productName, productPrice);
       insideCart.append(card);
     });
+    let totalParagraph = document.createElement("p");
+    totalParagraph.innerText = `$${total}`;
+    insideCart.append(totalParagraph);
   }
 });
-
-console.log(shoppingCartArray);
-
-const total = () => {};
-
-// let total = document.querySelector(".total");
-// let totalPrice = 0;
-// let amount = parseInt(event.target.getAttribute("price"));
-// totalPrice += amount;
-// console.log(amount);
-// total.innerText = `$${totalPrice}`;
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//write a fucction similar to createProductCard but that appends a card div to the shopping cart container (or array?) instead of the product container.
-
-// contactsContainer.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("delete")) {
-//     let index = e.target.getAttribute("data-index");
-//     contactsArray.splice(index, 1);
-//     addContact();
-//   }
-// });
-
-// createProductCard();
-
-// insideCart.addEventListener("click"(e) => {
-//   e.preventDefault();
-//   let newName =
-// });
-
-// name: "Clay Vase",
-//   category: "Home goods",
-//     description: "Classic bottle vase hand sculpted with natural clay.",
-//       price: 30,
-//         src: "product_images/pitcher.jpg",
