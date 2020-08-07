@@ -199,3 +199,11 @@ checkoutButton.addEventListener("click", () => {
   shoppingCart.classList.add("hide");
   checkoutForm.classList.remove("hide");
 });
+
+let finishButton = document.querySelector(".finish");
+let receiptPage = document.querySelector(".receipt");
+finishButton.addEventListener("click", () => {
+  // e.preventDefault();
+  checkoutForm.classList.add("hide");
+  receiptPage.classList.remove("hide");
+});
