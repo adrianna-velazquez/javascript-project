@@ -150,6 +150,8 @@ shoppingCartShow.addEventListener("click", (e) => {
 let shoppingCartArray = [];
 
 let insideCart = document.querySelector(".inside-cart");
+let cartItems = document.querySelector(".cart-items");
+let subtotalArea = document.querySelector(".subtotal");
 
 let addCartButton = document.querySelector(".add-cart");
 
@@ -160,7 +162,7 @@ productContainer.addEventListener("click", (e) => {
     let index = e.target.getAttribute("data-index");
     shoppingCartArray.push(products[index]);
     let total = 0;
-    insideCart.innerHTML = "";
+    cartItems.innerHTML = "";
     shoppingCartArray.forEach((product) => {
       total += product.price;
       let card = document.createElement("div");
@@ -175,10 +177,24 @@ productContainer.addEventListener("click", (e) => {
       productPrice.classList.add("product", "price", "info");
       productPrice.innerText = `$${product.price}`;
       card.append(productImage, productName, productPrice);
-      insideCart.append(card);
+      cartItems.append(card);
     });
     let totalParagraph = document.createElement("p");
-    totalParagraph.innerText = `$${total}`;
-    insideCart.append(totalParagraph);
+    totalParagraph.innerText = `Cart Subtotal: $${total}`;
+    let taxParagraph = document.createElement("p");
+    let totalTax = total * 0.06;
+    taxParagraph.innerText = `Sales Tax Total: $${totalTax.toFixed(2)}`;
+    let finalTotalParagraph = document.createElement("p");
+    let finalTotal = total + totalTax;
+    finalTotalParagraph.innerText = `Total Due: $${finalTotal.toFixed(2)}`;
+    subtotalArea.innerHTML = "";
+    subtotalArea.append(totalParagraph, taxParagraph, finalTotalParagraph);
   }
+});
+
+let checkoutButton = document.querySelector(".checkout-button");
+let checkoutForm = document.querySelector(".checkout-window");
+checkoutButton.addEventListener("click", () => {
+  shoppingCart.classList.add("hide");
+  checkoutForm.classList.remove("hide");
 });
