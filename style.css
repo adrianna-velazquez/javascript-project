@@ -30,6 +30,7 @@ body {
 .header {
   position: fixed;
   top: 0;
+  background-color: #fe5f55;
 }
 
 .header-image {
@@ -60,10 +61,6 @@ body {
   font-size: 4vw;
 }
 
-/* .company-name {
-
-} */
-
 .main-content {
   margin: 40px;
   padding-top: 35vw;
@@ -93,6 +90,50 @@ a {
 .add-cart {
   background-color: #fe5f55;
   font-family: "Raleway", sans-serif;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  border-style: none;
 }
+
 @media only screen and (min-width: 768px) {
+  .header {
+    border-bottom: 5px solid;
+    border-color: #fe5f55;
+  }
+
+  .header-image {
+    height: 30vh;
+    object-fit: cover;
+  }
+  .product-container {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: auto auto auto;
+  }
+
+  .main-content {
+    margin: 10px;
+    padding-top: 25%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .header-title {
+    font-size: 3vw;
+  }
+
+  .fa-shopping-cart {
+    font-size: 3vw;
+  }
+
+  /* .product {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 2vw;
+  } */
 }
+
+/* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {}; */
