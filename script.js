@@ -155,18 +155,29 @@ let addCartButton = document.querySelector(".add-cart");
 
 let productCard = document.querySelector(".product-card");
 
-productCard.addEventListener("click", (e) => {
+productContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-cart")) {
     let index = e.target.getAttribute("data-index");
-    shoppingCartArray.push(index, 1);
-    // createProductCard();
-    console.log(shoppingCartArray);
+    shoppingCartArray.push(products[index]);
+    shoppingCartArray.forEach((product) => {
+      let card = document.createElement("div");
+      card.classList.add("cart-product");
+      let productImage = document.createElement("img");
+      productImage.classList.add("image");
+      productImage.setAttribute("src", product.src);
+      let productName = document.createElement("h2");
+      productName.classList.add("product", "name");
+      productName.innerText = product.name;
+      let productPrice = document.createElement("p");
+      productPrice.classList.add("product", "price", "info");
+      productPrice.innerText = `$${product.price}`;
+      card.append(productImage, productName, productPrice);
+      insideCart.append(card);
+    });
   }
 });
 
 //write a fucction similar to createProductCard but that appends a card div to the shopping cart container (or array?) instead of the product container.
-
-console.log(products);
 
 // contactsContainer.addEventListener("click", (e) => {
 //   if (e.target.classList.contains("delete")) {
