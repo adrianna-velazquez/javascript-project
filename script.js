@@ -93,6 +93,8 @@ let products = [
   },
 ];
 
+//function that is creating all the products on the main page from the products array
+
 let productContainer = document.querySelector(".product-container");
 
 const createProductCard = () => {
@@ -133,6 +135,7 @@ const createProductCard = () => {
 
 createProductCard();
 // --------------------------------
+//button showing and hidiing shopping cart
 let shoppingCart = document.querySelector(".shopping-cart");
 
 let shoppingCartShow = document.querySelector(".cartButton");
@@ -141,3 +144,47 @@ shoppingCartShow.addEventListener("click", (e) => {
   console.log("hi");
   shoppingCart.classList.remove("hide");
 });
+
+//empty shopping array
+
+let shoppingCartArray = [];
+
+let insideCart = document.querySelector(".inside-cart");
+
+let addCartButton = document.querySelector(".add-cart");
+
+let productCard = document.querySelector(".product-card");
+
+productCard.addEventListener("click", (e) => {
+  if (e.target.classList.contains("add-cart")) {
+    let index = e.target.getAttribute("data-index");
+    shoppingCartArray.push(index, 1);
+    // createProductCard();
+    console.log(shoppingCartArray);
+  }
+});
+
+//write a fucction similar to createProductCard but that appends a card div to the shopping cart container (or array?) instead of the product container.
+
+console.log(products);
+
+// contactsContainer.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("delete")) {
+//     let index = e.target.getAttribute("data-index");
+//     contactsArray.splice(index, 1);
+//     addContact();
+//   }
+// });
+
+// createProductCard();
+
+// insideCart.addEventListener("click"(e) => {
+//   e.preventDefault();
+//   let newName =
+// });
+
+// name: "Clay Vase",
+//   category: "Home goods",
+//     description: "Classic bottle vase hand sculpted with natural clay.",
+//       price: 30,
+//         src: "product_images/pitcher.jpg",
