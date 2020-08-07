@@ -132,5 +132,12 @@ const createProductCard = () => {
 };
 
 createProductCard();
+// --------------------------------
+let shoppingCart = document.querySelector(".shopping-cart");
 
-console.log("hi");
+let shoppingCartShow = document.querySelector(".cartButton");
+shoppingCartShow.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("hi");
+  shoppingCart.classList.remove("hide");
+});
