@@ -106,7 +106,7 @@ const createProductCard = () => {
     productImage.classList.add("image");
     productImage.setAttribute("src", product.src);
     let productName = document.createElement("h2");
-    productName.classList.add("product", "name");
+    productName.classList.add("product");
     productName.innerText = product.name;
     let productDescription = document.createElement("p");
     productDescription.classList.add("product", "desc", "info");
@@ -160,10 +160,11 @@ productContainer.addEventListener("click", (e) => {
     let index = e.target.getAttribute("data-index");
     shoppingCartArray.push(products[index]);
     shoppingCartArray.forEach((product) => {
+      // insideCart.innerHTML = "";
       let card = document.createElement("div");
       card.classList.add("cart-product");
       let productImage = document.createElement("img");
-      productImage.classList.add("image");
+      productImage.classList.add("image", "image-cart");
       productImage.setAttribute("src", product.src);
       let productName = document.createElement("h2");
       productName.classList.add("product", "name");
@@ -177,6 +178,25 @@ productContainer.addEventListener("click", (e) => {
   }
 });
 
+console.log(shoppingCartArray);
+
+const total = () => {};
+
+// let total = document.querySelector(".total");
+// let totalPrice = 0;
+// let amount = parseInt(event.target.getAttribute("price"));
+// totalPrice += amount;
+// console.log(amount);
+// total.innerText = `$${totalPrice}`;
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //write a fucction similar to createProductCard but that appends a card div to the shopping cart container (or array?) instead of the product container.
 
 // contactsContainer.addEventListener("click", (e) => {

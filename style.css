@@ -88,6 +88,11 @@ a {
   height: auto;
 }
 
+.image-cart {
+  width: 100px;
+  height: 100px;
+}
+
 .add-cart {
   background-color: #fe5f55;
   font-family: "Raleway", sans-serif;
@@ -110,14 +115,18 @@ a {
   align-items: center;
 }
 
+.name {
+  font-size: medium;
+}
+
 .inside-cart {
-  /* this isn't affecting anything V V V */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;
   background-color: white;
-  width: 200px;
-  height: 200px;
+  width: 80vw;
+  height: 60vw;
   border-radius: 15px;
 }
 
