@@ -142,7 +142,7 @@ a {
 }
 
 .hide {
-  display: none;
+  visibility: hidden;
 }
 
 .cartButton {
@@ -186,10 +186,11 @@ a {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+
     padding: 20px;
     background-color: white;
-    width: 50vw;
-    height: 30vw;
+    width: 30vw;
+    height: 50vw;
     border-radius: 15px;
   }
 
@@ -202,7 +203,11 @@ a {
     width: 100px;
     height: 100px;
   }
-
+  .cardp,
+  .cashp,
+  .billing {
+    margin-bottom: 3px;
+  }
   /* .checkout {
     background-color: white;
     border-radius: 10px;

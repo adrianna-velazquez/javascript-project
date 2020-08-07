@@ -151,8 +151,8 @@ let shoppingCartArray = [];
 
 let insideCart = document.querySelector(".inside-cart");
 let cartItems = document.querySelector(".cart-items");
+
 let subtotalArea = document.querySelector(".subtotal");
-let receiptArea = document.querySelector(".receipt");
 
 let addCartButton = document.querySelector(".add-cart");
 
@@ -206,4 +206,42 @@ finishButton.addEventListener("click", () => {
   // e.preventDefault();
   checkoutForm.classList.add("hide");
   receiptPage.classList.remove("hide");
+});
+
+let receiptContent = document.querySelector(".receipt-items");
+let receiptSubtotal = document.querySelector(".receipt-subtotal");
+
+productContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("add-cart")) {
+    let index = e.target.getAttribute("data-index");
+    shoppingCartArray.push(products[index]);
+    let total = 0;
+    receiptContent.innerHTML = "";
+    shoppingCartArray.forEach((product) => {
+      total += product.price;
+      let receiptCard = document.createElement("div");
+      receiptCard.classList.add("cart-product");
+      let productImage = document.createElement("img");
+      productImage.classList.add("image", "image-cart");
+      productImage.setAttribute("src", product.src);
+      let productName = document.createElement("h2");
+      productName.classList.add("product", "name");
+      productName.innerText = product.name;
+      let productPrice = document.createElement("p");
+      productPrice.classList.add("product", "price", "info");
+      productPrice.innerText = `$${product.price}`;
+      receiptCard.append(productImage, productName, productPrice);
+      receiptContent.append(receiptCard);
+    });
+    let totalParagraph = document.createElement("p");
+    totalParagraph.innerText = `Cart Subtotal: $${total}`;
+    let taxParagraph = document.createElement("p");
+    let totalTax = total * 0.06;
+    taxParagraph.innerText = `Sales Tax Total: $${totalTax.toFixed(2)}`;
+    let finalTotalParagraph = document.createElement("p");
+    let finalTotal = total + totalTax;
+    finalTotalParagraph.innerText = `Total Paid: $${finalTotal.toFixed(2)}`;
+    receiptSubtotal.innerHTML = "";
+    receiptSubtotal.append(totalParagraph, taxParagraph, finalTotalParagraph);
+  }
 });

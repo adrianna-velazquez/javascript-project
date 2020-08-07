@@ -13,7 +13,14 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <body>
     <div class="receipt hide">
-      <div class="receipt-content">Bahahah</div>
+      <div class="receipt-content">
+        <div class="thank-you">
+          Thank you for shopping with Serene Quarters! Please review details of
+          your purchase below:
+        </div>
+        <div class="receipt-items"></div>
+        <div class="receipt-subtotal"></div>
+      </div>
     </div>
     <div class="shopping-cart hide">
       <div class="inside-cart">
@@ -26,7 +33,16 @@
     </div>
     <div class="checkout-window hide">
       <form class="checkout">
-        <h3>Billing Address</h3>
+        <h3 class="cashp">Cash Payment</h3>
+        <label for="camount">Total Cash Payment Amount</label>
+        <input
+          type="text"
+          id="camount"
+          name="camount"
+          placeholder="Enter total cash payment"
+        />
+        <h3 class="cardp">Card Payment</h3>
+        <h3 class="billing">Billing Address</h3>
         <div class="billing line1">
           <label for="fname">Full Name</label>
           <input
