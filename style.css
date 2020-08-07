@@ -135,7 +135,7 @@ a {
   padding: 20px;
   background-color: white;
   width: 80vw;
-  height: 150vw;
+  height: 140vw;
   border-radius: 15px;
 }
 
@@ -176,6 +176,28 @@ a {
 
   .fa-shopping-cart {
     font-size: 3vw;
+  }
+
+  .inside-cart,
+  .checkout {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    width: 50vw;
+    height: 30vw;
+    border-radius: 15px;
+  }
+
+  .image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .image-cart {
+    width: 100px;
+    height: 100px;
   }
 
   /* .checkout {

@@ -152,6 +152,7 @@ let shoppingCartArray = [];
 let insideCart = document.querySelector(".inside-cart");
 let cartItems = document.querySelector(".cart-items");
 let subtotalArea = document.querySelector(".subtotal");
+let receiptArea = document.querySelector(".receipt");
 
 let addCartButton = document.querySelector(".add-cart");
 
