@@ -211,6 +211,41 @@ finishButton.addEventListener("click", () => {
 let receiptContent = document.querySelector(".receipt-items");
 let receiptSubtotal = document.querySelector(".receipt-subtotal");
 
+// productContainer.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("add-cart")) {
+//     let total = 0;
+//     receiptContent.innerHTML = "";
+//     shoppingCartArray.forEach((product) => {
+//       total += product.price;
+//       let receiptCard = document.createElement("div");
+//       receiptCard.classList.add("cart-product");
+//       let productImage = document.createElement("img");
+//       productImage.classList.add("image", "image-cart");
+//       productImage.setAttribute("src", product.src);
+//       let productName = document.createElement("h2");
+//       productName.classList.add("product", "name");
+//       productName.innerText = product.name;
+//       let productPrice = document.createElement("p");
+//       productPrice.classList.add("product", "price", "info");
+//       productPrice.innerText = `$${product.price}`;
+//       receiptCard.append(productImage, productName, productPrice);
+//       receiptContent.append(receiptCard);
+//     });
+//     let totalParagraph = document.createElement("p");
+//     totalParagraph.innerText = `Cart Subtotal: $${total}`;
+//     let taxParagraph = document.createElement("p");
+//     let totalTax = total * 0.06;
+//     taxParagraph.innerText = `Sales Tax Total: $${totalTax.toFixed(2)}`;
+//     let finalTotalParagraph = document.createElement("p");
+//     let finalTotal = total + totalTax;
+//     finalTotalParagraph.innerText = `Total Paid: $${finalTotal.toFixed(2)}`;
+//     receiptSubtotal.innerHTML = "";
+//     receiptSubtotal.append(totalParagraph, taxParagraph, finalTotalParagraph);
+//   }
+// });
+
+let cashInput = document.querySelector(".checkout");
+
 productContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-cart")) {
     let total = 0;
@@ -231,15 +266,29 @@ productContainer.addEventListener("click", (e) => {
       receiptCard.append(productImage, productName, productPrice);
       receiptContent.append(receiptCard);
     });
+    let data = new FormData(cashInput);
+    let cashPaid = data.get("camount");
+
     let totalParagraph = document.createElement("p");
     totalParagraph.innerText = `Cart Subtotal: $${total}`;
     let taxParagraph = document.createElement("p");
     let totalTax = total * 0.06;
     taxParagraph.innerText = `Sales Tax Total: $${totalTax.toFixed(2)}`;
     let finalTotalParagraph = document.createElement("p");
+    console.log(cashPaid);
     let finalTotal = total + totalTax;
+    let changeOwed = cashPaid - finalTotal;
+
+    console.log(changeOwed);
     finalTotalParagraph.innerText = `Total Paid: $${finalTotal.toFixed(2)}`;
+    let changeOwedParagraph = document.createElement("p");
+    changeOwedParagraph.innerText = `Total Change Owed: $${changeOwed}`;
     receiptSubtotal.innerHTML = "";
-    receiptSubtotal.append(totalParagraph, taxParagraph, finalTotalParagraph);
+    receiptSubtotal.append(
+      totalParagraph,
+      taxParagraph,
+      finalTotalParagraph,
+      changeOwedParagraph
+    );
   }
 });

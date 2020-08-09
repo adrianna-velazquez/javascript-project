@@ -94,7 +94,8 @@ a {
 }
 
 .add-cart,
-.checkout-button {
+.checkout-button,
+.finish {
   background-color: #fe5f55;
   font-family: "Raleway", sans-serif;
   color: white;
