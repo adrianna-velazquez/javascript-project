@@ -213,8 +213,6 @@ let receiptSubtotal = document.querySelector(".receipt-subtotal");
 
 productContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-cart")) {
-    let index = e.target.getAttribute("data-index");
-    shoppingCartArray.push(products[index]);
     let total = 0;
     receiptContent.innerHTML = "";
     shoppingCartArray.forEach((product) => {
