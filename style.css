@@ -104,7 +104,9 @@ a {
   margin-top: 10px;
 }
 
-.add-cart:focus, .checkout-button:focus, .finish:focus {
+.add-cart:focus,
+.checkout-button:focus,
+.finish:focus {
   outline: 0;
 }
 .cashcheckout {
@@ -112,7 +114,9 @@ a {
   flex-direction: column;
 }
 
-.add-cart:active, .checkout-button:active, .finish:active {
+.add-cart:active,
+.checkout-button:active,
+.finish:active {
   background-color: #7a9e9f;
 }
 
@@ -236,5 +240,4 @@ input {
     display: flex;
     flex-direction: column;
   }
-
-  
+}
