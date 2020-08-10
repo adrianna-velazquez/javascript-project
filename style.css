@@ -59,7 +59,6 @@ body {
   top: 10%;
   right: 5%;
   font-size: 4vw;
-  style: none;
 }
 
 .main-content {
@@ -193,7 +192,6 @@ input {
 
   .inside-cart,
   .formsContainer,
-  .cashcheckout,
   .receipt-content {
     overflow-y: auto;
     display: flex;
@@ -220,6 +218,12 @@ input {
   .billing {
     margin-bottom: 3px;
   }
+
+  .cashcheckout {
+    display: flex;
+    flex-direction: column;
+  }
+
   /* .checkout {
     background-color: white;
     border-radius: 10px;
