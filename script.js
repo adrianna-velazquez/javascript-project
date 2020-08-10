@@ -194,7 +194,6 @@ productContainer.addEventListener("click", (e) => {
     finalTotalParagraph.innerText = `Total Due: $${finalTotal.toFixed(2)}`;
     subtotalArea.innerHTML = "";
     subtotalArea.append(totalParagraph, taxParagraph, finalTotalParagraph);
-    console.log(total, totalTax, finalTotal);
   }
 });
 
@@ -204,14 +203,6 @@ checkoutButton.addEventListener("click", () => {
   shoppingCart.classList.add("hide");
   checkoutForm.classList.remove("hide");
 });
-
-// let finishButton = document.querySelector(".finish");
-//
-// finishButton.addEventListener("click", () => {
-//   // e.preventDefault();
-//   checkoutForm.classList.add("hide");
-//   receiptPage.classList.remove("hide");
-// });
 
 let receiptContent = document.querySelector(".receipt-items");
 
@@ -252,4 +243,14 @@ cashInput.addEventListener("submit", (e) => {
   let changeDueParagraph = document.createElement("p");
   changeDueParagraph.innerText = `Change Due $${changeDue.toFixed(2)}`;
   cashSubtotal.append(changeDueParagraph);
+});
+
+let cardInput = document.querySelector(".cardcheckout");
+let cardSubtotal = document.querySelector(".card-subtotal");
+
+cardInput.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let totalPaidParagraph = document.createElement("p");
+  totalPaidParagraph.innerText = `Total Paid: $${finalTotal.toFixed(2)}`;
+  cardSubtotal.append(totalPaidParagraph);
 });
