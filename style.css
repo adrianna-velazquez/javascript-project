@@ -103,9 +103,17 @@ a {
   border-style: none;
   margin-top: 10px;
 }
+
+.add-cart:focus, .checkout-button:focus, .finish:focus {
+  outline: 0;
+}
 .cashcheckout {
   display: flex;
   flex-direction: column;
+}
+
+.add-cart:active, .checkout-button:active, .finish:active {
+  background-color: #7a9e9f;
 }
 
 .billing,
