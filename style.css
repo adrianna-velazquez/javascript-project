@@ -103,11 +103,21 @@ a {
   padding: 10px;
   border-style: none;
 }
+.cashcheckout {
+  display: flex;
+  flex-direction: column;
+}
 
 .billing,
 .payment {
   display: flex;
   flex-direction: column;
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
 }
 /* ---------------- */
 
@@ -130,7 +140,7 @@ a {
 }
 
 .inside-cart,
-.checkout,
+.formsContainer,
 .receipt-content {
   overflow-y: auto;
   display: flex;
@@ -182,7 +192,8 @@ a {
   }
 
   .inside-cart,
-  .checkout,
+  .formsContainer,
+  .cashcheckout,
   .receipt-content {
     overflow-y: auto;
     display: flex;

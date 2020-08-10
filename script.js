@@ -158,12 +158,16 @@ let addCartButton = document.querySelector(".add-cart");
 
 let productCard = document.querySelector(".product-card");
 
+let total = 0;
+let totalTax = 0;
+let finalTotal = 0;
+
 productContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-cart")) {
     let index = e.target.getAttribute("data-index");
     shoppingCartArray.push(products[index]);
-    let total = 0;
     cartItems.innerHTML = "";
+    let total = 0;
     shoppingCartArray.forEach((product) => {
       total += product.price;
       let card = document.createElement("div");
@@ -186,10 +190,11 @@ productContainer.addEventListener("click", (e) => {
     let totalTax = total * 0.06;
     taxParagraph.innerText = `Sales Tax Total: $${totalTax.toFixed(2)}`;
     let finalTotalParagraph = document.createElement("p");
-    let finalTotal = total + totalTax;
+    finalTotal = total + totalTax;
     finalTotalParagraph.innerText = `Total Due: $${finalTotal.toFixed(2)}`;
     subtotalArea.innerHTML = "";
     subtotalArea.append(totalParagraph, taxParagraph, finalTotalParagraph);
+    console.log(total, totalTax, finalTotal);
   }
 });
 
@@ -200,55 +205,18 @@ checkoutButton.addEventListener("click", () => {
   checkoutForm.classList.remove("hide");
 });
 
-let finishButton = document.querySelector(".finish");
-let receiptPage = document.querySelector(".receipt");
-finishButton.addEventListener("click", () => {
-  // e.preventDefault();
-  checkoutForm.classList.add("hide");
-  receiptPage.classList.remove("hide");
-});
-
-let receiptContent = document.querySelector(".receipt-items");
-let receiptSubtotal = document.querySelector(".receipt-subtotal");
-
-// productContainer.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("add-cart")) {
-//     let total = 0;
-//     receiptContent.innerHTML = "";
-//     shoppingCartArray.forEach((product) => {
-//       total += product.price;
-//       let receiptCard = document.createElement("div");
-//       receiptCard.classList.add("cart-product");
-//       let productImage = document.createElement("img");
-//       productImage.classList.add("image", "image-cart");
-//       productImage.setAttribute("src", product.src);
-//       let productName = document.createElement("h2");
-//       productName.classList.add("product", "name");
-//       productName.innerText = product.name;
-//       let productPrice = document.createElement("p");
-//       productPrice.classList.add("product", "price", "info");
-//       productPrice.innerText = `$${product.price}`;
-//       receiptCard.append(productImage, productName, productPrice);
-//       receiptContent.append(receiptCard);
-//     });
-//     let totalParagraph = document.createElement("p");
-//     totalParagraph.innerText = `Cart Subtotal: $${total}`;
-//     let taxParagraph = document.createElement("p");
-//     let totalTax = total * 0.06;
-//     taxParagraph.innerText = `Sales Tax Total: $${totalTax.toFixed(2)}`;
-//     let finalTotalParagraph = document.createElement("p");
-//     let finalTotal = total + totalTax;
-//     finalTotalParagraph.innerText = `Total Paid: $${finalTotal.toFixed(2)}`;
-//     receiptSubtotal.innerHTML = "";
-//     receiptSubtotal.append(totalParagraph, taxParagraph, finalTotalParagraph);
-//   }
+// let finishButton = document.querySelector(".finish");
+//
+// finishButton.addEventListener("click", () => {
+//   // e.preventDefault();
+//   checkoutForm.classList.add("hide");
+//   receiptPage.classList.remove("hide");
 // });
 
-let cashInput = document.querySelector(".checkout");
+let receiptContent = document.querySelector(".receipt-items");
 
 productContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-cart")) {
-    let total = 0;
     receiptContent.innerHTML = "";
     shoppingCartArray.forEach((product) => {
       total += product.price;
@@ -266,29 +234,22 @@ productContainer.addEventListener("click", (e) => {
       receiptCard.append(productImage, productName, productPrice);
       receiptContent.append(receiptCard);
     });
-    let data = new FormData(cashInput);
-    let cashPaid = data.get("camount");
-
-    let totalParagraph = document.createElement("p");
-    totalParagraph.innerText = `Cart Subtotal: $${total}`;
-    let taxParagraph = document.createElement("p");
-    let totalTax = total * 0.06;
-    taxParagraph.innerText = `Sales Tax Total: $${totalTax.toFixed(2)}`;
-    let finalTotalParagraph = document.createElement("p");
-    console.log(cashPaid);
-    let finalTotal = total + totalTax;
-    let changeOwed = cashPaid - finalTotal;
-
-    console.log(changeOwed);
-    finalTotalParagraph.innerText = `Total Paid: $${finalTotal.toFixed(2)}`;
-    let changeOwedParagraph = document.createElement("p");
-    changeOwedParagraph.innerText = `Total Change Owed: $${changeOwed}`;
-    receiptSubtotal.innerHTML = "";
-    receiptSubtotal.append(
-      totalParagraph,
-      taxParagraph,
-      finalTotalParagraph,
-      changeOwedParagraph
-    );
   }
+});
+
+let cashSubtotal = document.querySelector(".cash-subtotal");
+let cashCheckoutButton = document.querySelector(".cashfinish");
+let cashInput = document.querySelector(".cashcheckout");
+let receiptPage = document.querySelector(".receipt");
+
+cashInput.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let data = new FormData(cashInput);
+  let amount = data.get("camount");
+  checkoutForm.classList.add("hide");
+  receiptPage.classList.remove("hide");
+  let changeDue = amount - finalTotal;
+  let changeDueParagraph = document.createElement("p");
+  changeDueParagraph.innerText = `Change Due $${changeDue.toFixed(2)}`;
+  cashSubtotal.append(changeDueParagraph);
 });
