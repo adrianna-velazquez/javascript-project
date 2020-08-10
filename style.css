@@ -101,6 +101,7 @@ a {
   border-radius: 10px;
   padding: 10px;
   border-style: none;
+  margin-top: 10px;
 }
 .cashcheckout {
   display: flex;
@@ -157,6 +158,10 @@ input {
 
 .cartButton {
   cursor: pointer;
+}
+
+.thank-you {
+  margin-bottom: 15px;
 }
 /* ---------------- */
 @media only screen and (min-width: 768px) {
@@ -224,20 +229,4 @@ input {
     flex-direction: column;
   }
 
-  /* .checkout {
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 0.8em;
-  } */
-
-  /* .product {
-    font-size: 20px;
-  }
-
-  h2 {
-    font-size: 2vw;
-  } */
-}
-
-/* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {}; */
+  

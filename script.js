@@ -229,7 +229,7 @@ productContainer.addEventListener("click", (e) => {
 });
 
 let cashSubtotal = document.querySelector(".cash-subtotal");
-let cashCheckoutButton = document.querySelector(".cashfinish");
+// let cashCheckoutButton = document.querySelector(".cashfinish");
 let cashInput = document.querySelector(".cashcheckout");
 let receiptPage = document.querySelector(".receipt");
 
@@ -240,9 +240,11 @@ cashInput.addEventListener("submit", (e) => {
   checkoutForm.classList.add("hide");
   receiptPage.classList.remove("hide");
   let changeDue = amount - finalTotal;
+  let amountPaidParagraph = document.createElement("p");
+  amountPaidParagraph.innerText = `Total Cash Paid $${amount}`;
   let changeDueParagraph = document.createElement("p");
   changeDueParagraph.innerText = `Change Due $${changeDue.toFixed(2)}`;
-  cashSubtotal.append(changeDueParagraph);
+  cashSubtotal.append(amountPaidParagraph, changeDueParagraph);
 });
 
 let cardInput = document.querySelector(".cardcheckout");
@@ -250,7 +252,30 @@ let cardSubtotal = document.querySelector(".card-subtotal");
 
 cardInput.addEventListener("submit", (e) => {
   e.preventDefault();
+  checkoutForm.classList.add("hide");
+  receiptPage.classList.remove("hide");
   let totalPaidParagraph = document.createElement("p");
   totalPaidParagraph.innerText = `Total Paid: $${finalTotal.toFixed(2)}`;
   cardSubtotal.append(totalPaidParagraph);
+});
+
+shoppingCart.addEventListener("click", (e) => {
+  if (e.target.classList.contains("background")) {
+    e.preventDefault();
+    shoppingCart.classList.add("hide");
+  }
+});
+
+checkoutForm.addEventListener("click", (e) => {
+  if (e.target.classList.contains("background")) {
+    e.preventDefault();
+    checkoutForm.classList.add("hide");
+  }
+});
+
+receiptPage.addEventListener("click", (e) => {
+  if (e.target.classList.contains("background")) {
+    e.preventDefault();
+    receiptPage.classList.add("hide");
+  }
 });
